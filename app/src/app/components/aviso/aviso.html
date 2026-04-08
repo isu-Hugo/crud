@@ -1,0 +1,14 @@
+
+<form [formGroup]="avisoForms" (ngSubmit)="salvarAviso()" >
+  <input type="text" placeholder="titulo" formControlName="title">
+  <input type="text" placeholder="mensagem" formControlName="message">
+  <button>Salvar aviso</button>
+</form>
+
+<button (click)="verAvisos()">Ver avisos</button>
+
+@for (aviso of avisos(); track aviso.id) {
+  <p>{{ aviso.title }} | {{ aviso.message }}</p>
+}@empty {
+  <p>Lista vazia</p>
+}
